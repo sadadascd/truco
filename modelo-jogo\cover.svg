@@ -1,38 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Capa de modelo de jogo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Capa do jogo Personagens: Omi Tower Defense (POTW)">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b1120" />
-      <stop offset="1" stop-color="#1e3a8a" />
+    <linearGradient id="bg-potw" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a" />
+      <stop offset="0.5" stop-color="#1e1b4b" />
+      <stop offset="1" stop-color="#312e81" />
     </linearGradient>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.07" />
+    <pattern id="grid-potw" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.06" />
     </pattern>
   </defs>
 
-  <rect width="800" height="450" fill="url(#bg)" />
-  <rect width="800" height="450" fill="url(#grid)" />
-  <circle cx="690" cy="60" r="150" fill="#3b82f6" opacity="0.2" />
+  <rect width="800" height="450" fill="url(#bg-potw)" />
+  <rect width="800" height="450" fill="url(#grid-potw)" />
+
+  
+  <circle cx="630" cy="140" r="56" fill="#2563eb" opacity="0.85" />
+  <circle cx="715" cy="215" r="46" fill="#ea580c" opacity="0.85" />
+  <circle cx="585" cy="265" r="42" fill="#16a34a" opacity="0.85" />
+  <circle cx="675" cy="315" r="50" fill="#d97706" opacity="0.9" />
+
+  
+  <circle cx="650" cy="225" r="130" fill="none" stroke="#a5b4fc" stroke-width="4" stroke-dasharray="14 10" opacity="0.6" />
 
   <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif">
-    <text x="56" y="72" fill="#93c5fd" font-size="15" font-weight="800" letter-spacing="4">JOGOS VR</text>
+    <text x="52" y="74" fill="#93c5fd" font-size="15" font-weight="800" letter-spacing="3">PENSAMENTO LÓGICO • 9C</text>
 
-    <g transform="translate(520 130)">
-      <circle cx="90" cy="90" r="86" fill="none" stroke="#334155" stroke-width="14" />
-      <circle cx="90" cy="90" r="56" fill="none" stroke="#f59e0b" stroke-width="14" />
-      <circle cx="90" cy="90" r="26" fill="#3b82f6" />
-      <circle cx="90" cy="90" r="8" fill="#ffffff" />
+    <text x="52" y="155" fill="#ffffff" font-size="44" font-weight="900" letter-spacing="-1">Personagens:</text>
+    <text x="52" y="208" fill="#fbbf24" font-size="46" font-weight="900" letter-spacing="-1">Omi Tower Defense</text>
+    <text x="52" y="255" fill="#c7d2fe" font-size="26" font-weight="800">(POTW)</text>
+
+    <text x="52" y="305" fill="#e2e8f0" font-size="18" font-weight="500">Regras lógicas, sequências e sorteio de guardiões!</text>
+
+    <g transform="translate(52 346)">
+      <rect width="142" height="36" rx="18" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.25" />
+      <text x="71" y="23" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">8 Ondas</text>
     </g>
-
-    <text x="56" y="280" fill="#ffffff" font-size="54" font-weight="900" letter-spacing="-1.5">Seu jogo aqui</text>
-    <text x="58" y="320" fill="#bfdbfe" font-size="19" font-weight="600">Copie esta pasta, troque o conteúdo e entregue.</text>
-
-    <g transform="translate(58 352)">
-      <rect width="128" height="34" rx="17" fill="#ffffff" fill-opacity="0.1" stroke="#ffffff" stroke-opacity="0.2" />
-      <text x="64" y="22" fill="#e2e8f0" font-size="12" font-weight="700" text-anchor="middle">pasta-modelo</text>
-    </g>
-    <g transform="translate(198 352)">
-      <rect width="150" height="34" rx="17" fill="#ffffff" fill-opacity="0.1" stroke="#ffffff" stroke-opacity="0.2" />
-      <text x="75" y="22" fill="#e2e8f0" font-size="12" font-weight="700" text-anchor="middle">HTML + CSS + JS</text>
+    <g transform="translate(208 346)">
+      <rect width="166" height="36" rx="18" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.25" />
+      <text x="83" y="23" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">Autor: Felipe</text>
     </g>
   </g>
 </svg>
