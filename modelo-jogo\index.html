@@ -4,41 +4,105 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>Modelo de Jogo — Jogos VR</title>
+    <title>Personagens: Omi Tower Defense (POTW)</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="app">
       <header class="top">
         <div>
-          <span class="kicker">Modelo</span>
-          <h1 id="title">Clique no Alvo</h1>
-          <p class="subtitle">Troque este jogo pelo seu. O contrato já está pronto.</p>
+          <span class="kicker">Pensamento Lógico • 9º Ano</span>
+          <h1 id="title">Personagens: Omi Tower Defense (POTW)</h1>
+          <p class="subtitle">Analise a regra lógica, invoque guardiões e defenda a base!</p>
         </div>
         <button id="restart" class="btn" type="button">Reiniciar</button>
       </header>
 
       <main>
-        <div class="hud">
-          <span class="pill">Alvos: <strong id="score">0</strong>/<span id="total">10</span></span>
+        <!-- Painel de informações da partida -->
+        <div class="hud" role="status" aria-live="polite">
+          <span class="pill">Onda: <strong id="wave">1</strong>/<span id="total-waves">8</span></span>
+          <span class="pill">Base: <strong id="base-hp">100</strong>%</span>
+          <span class="pill">Pontos: <strong id="score">0</strong></span>
           <span class="pill">Tempo: <strong id="timer">0,0s</strong></span>
         </div>
 
-        <div id="board" class="board" aria-label="Área do jogo">
-          <p id="start-hint" class="start-hint">Clique no alvo para começar</p>
-        </div>
-      </main>
+        <!-- Arena com cenários dinâmicos -->
+        <section id="arena" class="arena theme-floresta" aria-label="Arena de defesa">
+          <div class="arena-header">
+            <span id="biome-badge" class="biome-badge">🌲 Floresta Ancestral</span>
+            <span id="enemy-badge" class="enemy-badge">Invasor: Chama Rubra 🔥</span>
+          </div>
 
-      <footer class="bottom">
-        <p>Este é o arquivo <code>game.js</code>. Leia os comentários e adapte.</p>
-      </footer>
+          <!-- Pista visual do Tower Defense -->
+          <div class="lane">
+            <div class="portal-box" aria-hidden="true">
+              <span class="portal-icon">🌀</span>
+              <span class="entity-label">Portal</span>
+            </div>
+
+            <div class="track">
+              <div id="enemy-unit" class="unit enemy-unit">
+                <span id="enemy-emoji" class="unit-emoji">🔥</span>
+                <span id="enemy-name" class="unit-name">Chama</span>
+              </div>
+              <div class="track-arrow" aria-hidden="true">➔➔➔</div>
+              <div id="defender-slot" class="unit defender-slot">
+                <span id="defender-emoji" class="unit-emoji">🛡️</span>
+                <span id="defender-name" class="unit-name">Aguardando</span>
+              </div>
+            </div>
+
+            <div class="base-box" aria-hidden="true">
+              <span class="base-icon">🏰</span>
+              <span class="entity-label">Base</span>
+            </div>
+          </div>
+
+          <!-- Desafio lógico da onda -->
+          <div class="logic-box">
+            <span id="logic-type" class="logic-tag">Regra SE... ENTÃO</span>
+            <p id="logic-prompt" class="logic-prompt">Carregando desafio...</p>
+          </div>
+        </section>
+
+        <!-- Retorno educativo imediato -->
+        <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+
+        <!-- Equipe de guardiões do jogador -->
+        <section class="deck-section" aria-label="Seus Guardiões">
+          <div class="deck-header">
+            <h2 class="section-title">Escolha o Guardião para Defender:</h2>
+            <span id="team-count" class="team-count">1/4 Guardiões</span>
+          </div>
+          <div id="cards-grid" class="cards-grid"></div>
+        </section>
+      </main>
     </div>
 
+    <!-- Modal de Sorteio (Summon) entre ondas -->
+    <div id="summon-modal" class="overlay" hidden>
+      <div class="modal summon-card" role="dialog" aria-modal="true" aria-labelledby="summon-title">
+        <span class="kicker">Onda Concluída!</span>
+        <h2 id="summon-title">Portal de Sorteio</h2>
+        <p class="modal-desc">Você ganhou um cristal de invocação! Clique abaixo para sortear um novo guardião.</p>
+        
+        <div id="summon-reveal" class="summon-reveal">
+          <div class="crystal-orb" id="summon-orb">💎</div>
+          <p id="summon-status" class="summon-status">Pronto para sortear!</p>
+        </div>
+
+        <button id="btn-summon" class="btn btn-primary full" type="button">✨ Sortear Guardião</button>
+        <button id="btn-next-wave" class="btn btn-success full" type="button" hidden>Próxima Onda ➔</button>
+      </div>
+    </div>
+
+    <!-- Modal de Fim de Jogo -->
     <div id="result" class="overlay" hidden>
       <div class="modal" role="dialog" aria-modal="true" aria-labelledby="result-title">
-        <div class="modal-icon" aria-hidden="true">🎯</div>
-        <h2 id="result-title">Muito bem!</h2>
-        <p id="result-text">Você concluiu o jogo.</p>
+        <div id="result-icon" class="modal-icon" aria-hidden="true">🏆</div>
+        <h2 id="result-title">Vitória!</h2>
+        <p id="result-text" class="modal-desc">Você protegeu a base.</p>
         <button id="play-again" class="btn btn-primary full" type="button">Jogar de novo</button>
       </div>
     </div>
